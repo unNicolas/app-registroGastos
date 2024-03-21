@@ -1,0 +1,5 @@
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+SQLAlchemy==2.0.28
+streamlit==1.32.2
+pymssql==2.2.11
