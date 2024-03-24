@@ -19,7 +19,8 @@ jobs:
       env:
         ACR_NAME: ${{ secrets.ACR_NAME }}
         ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+        CURRENT_DATE: $(date +%Y%m%d%H%M)
       run: |
-        docker build -t $ACR_NAME.azurecr.io/appgastos:${{ github.sha }} .
+        docker build -t $ACR_NAME.azurecr.io/appgastos:${CURRENT_DATE} .
         echo $ACR_PASSWORD | docker login $ACR_NAME.azurecr.io -u $ACR_NAME --password-stdin
-        docker push $ACR_NAME.azurecr.io/appgastos:${{ github.sha }}
+        docker push $ACR_NAME.azurecr.io/appgastos:${CURRENT_DATE}
